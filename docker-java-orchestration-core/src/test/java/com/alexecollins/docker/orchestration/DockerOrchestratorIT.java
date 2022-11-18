@@ -15,6 +15,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
@@ -36,7 +37,7 @@ public class DockerOrchestratorIT {
 
     private static Properties properties() throws IOException {
         Properties properties = new Properties();
-        File file = File.createTempFile("testFile", "txt");
+        File file = Files.createTempFile("testFile", "txt").toFile();
         properties.setProperty("testFile.path", file.getCanonicalPath());
         properties.setProperty("testFile.name", file.getName());
         return properties;
